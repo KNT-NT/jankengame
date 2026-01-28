@@ -14,9 +14,9 @@ public class Judge {
 	}
 
 	public int hantei(Hand player, Hand enemy) {
-		if (player.state == enemy.state) {
+		if (player.getState() == enemy.getState()) {
 			return 0;
-		} else if (winPattern.get(player.state) == enemy.state) { //辞書のキーから取り出した値と相手の手の値が同じなら勝ち
+		} else if (winPattern.get(player.getState()) == enemy.getState()) { //辞書のキーから取り出した値と相手の手の値が同じなら勝ち
 			return 1;
 		} else {
 			return 2; //それ以外は負け

@@ -14,7 +14,7 @@ public class Main {
 
 		do {
 			System.out.println("0:グー、1:チョキ、2:パー"); //グーは0、チョキは1、パーは2として処理する
-			player.state = new java.util.Scanner(System.in).nextInt(); //出す手を数字で入力
+			player.setState(new java.util.Scanner(System.in).nextInt()) ;// = new java.util.Scanner(System.in).nextInt(); //出す手を数字で入力
 			System.out.println("自分：" + player.printer()); //自分の出した手を表示する
 
 			enemy.randomChoose(); //相手の手を決める
