@@ -6,15 +6,19 @@ public class Main {
 		Hand player = new Hand(); //自分の手を生成
 		Hand enemy = new Hand(); //相手の手を生成
 		Judge judge = new Judge(); //hanteiメソッドを使うために生成
-		//Random rand = new Random();
-		//int enemyhand;//敵の手を生成
+		java.util.Scanner sc = new java.util.Scanner(System.in);
 
 		System.out.println("じゃんけんをします");
-		System.out.println("じゃんけん..");
-
+		System.out.println("じゃんけん...");
+		
 		do {
 			System.out.println("0:グー、1:チョキ、2:パー"); //グーは0、チョキは1、パーは2として処理する
-			player.setState(new java.util.Scanner(System.in).nextInt()) ;// = new java.util.Scanner(System.in).nextInt(); //出す手を数字で入力
+			player.setState(sc.nextInt()) ; //出す手を数字で入力
+			if (player.getState() < 0 || player.getState() >2) { //0から2以外の数字が入力されたらdo-while文の最初に戻る
+				System.out.println("0から2の数字を入力してください");
+				System.out.println("じゃんけん...");
+				continue;
+			}
 			System.out.println("自分：" + player.printer()); //自分の出した手を表示する
 
 			enemy.randomChoose(); //相手の手を決める
@@ -33,6 +37,6 @@ public class Main {
 			}
 		} while (result == 0); //あいこ(result=0)の間、じゃんけんを繰り返す。
 		System.out.println("ゲーム終了です");
-
+		sc.close();
 	}
 }
